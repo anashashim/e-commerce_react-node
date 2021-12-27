@@ -1,0 +1,19 @@
+{
+  "name": "e-commerce_react-node",
+  "version": "1.0.0",
+  "description": "A e-commerce platform with React and Nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anashashim/e-commerce_react-node.git"
+  },
+  "author": "Anas Pola",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anashashim/e-commerce_react-node/issues"
+  },
+  "homepage": "https://github.com/anashashim/e-commerce_react-node#readme"
+}
