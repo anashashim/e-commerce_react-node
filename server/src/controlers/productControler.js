@@ -53,6 +53,21 @@ const getProducts = asyncHandler(async (req, res) => {
     }
 })
 
+// @desc Fetch single  product
+// @route GET /api/products/:id
+// @access Public
+const getProductById = asyncHandler(async (req, res) => {
+    const product =  await Product.findById(req.params.id)
+    if(product){
+        res.json(product)
+    } else{
+        // status it's 500 by default cuz of errHandler
+        res.status(404)
+        throw new Error('Product not found')
+    }
+})
+
 export {
-    getProducts
+    getProducts,
+    getProductById
 }

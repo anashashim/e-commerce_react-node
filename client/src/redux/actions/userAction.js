@@ -1,13 +1,11 @@
 import axios from "axios";
-
+import { HOST_URL } from "../../constants";
 import { 
     USER_LOGIN_FAIL, 
     USER_LOGIN_REQUEST, 
     USER_LOGIN_SUCCESS, 
     USER_LOGOUT 
 } from "../constants/userConstants";
-
-const url = "http://localhost:5001";
 
 const login = (email, password) => async(dispatch) => {
     try {
@@ -19,7 +17,7 @@ const login = (email, password) => async(dispatch) => {
                 'Content-Type': 'application/json'
             }
         }
-        const {data} = await axios.post(`${url}/api/login`, {email, password}, config)
+        const {data} = await axios.post(`${HOST_URL}/api/login`, {email, password}, config)
         dispatch({
             type: USER_LOGIN_SUCCESS,
             payload: data
