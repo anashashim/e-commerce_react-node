@@ -1,0 +1,83 @@
+
+.login-container {
+    width: 96vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 40px;
+}
+
+.login-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+  
+form {
+    width: 400px;
+}
+  
+.login-content h2 {
+    margin: 15px 0;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 2.9rem;
+}
+  
+.login-content .input-div {
+    position: relative;
+    margin-bottom: 0px;
+    padding: 5px 0;
+    border-bottom: 2px solid #d9d9d9;
+}
+  
+.login-content .input-div.one {
+    margin-top: 0px;
+    margin-top: 0;
+}
+  
+.input-div > input {
+    left: 0;
+    top: 0;
+    border: none;
+    outline: none;
+    background: none;
+    padding: 0.5rem 0.7rem;
+    font-size: 1.2rem;
+    color: #555;
+    width: 100%;
+}
+
+.input-div.pass {
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+  
+.btn {
+    display: block;
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to right, #2e1c81, #160d6b, #03014e);
+    background-size: 200%;
+    font-size: 1.2rem;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    text-transform: uppercase;
+    margin: 1rem 0;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.btna:hover {
+    background-position: right;
+}
+
+.login-content h1 {
+    font-size: 30px;
+    margin-bottom: 30px;
+    font-weight: 650;
+}
