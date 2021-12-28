@@ -1,14 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import './login.css'
 
+import {useDispatch, useSelector} from 'react-redux';
+import login from '../../redux/actions/userAction';
+
 const Login = ({location, history}) => {
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
-    // Dummy user login
-    const userLogin = {
-        email:'test@dummy.com',
-        password:'12345'
-    };
+    
+    const dispatch = useDispatch();
+    const userLogin = useSelector(state => state.userLogin);
+
     const { error, userInfo } = userLogin;
     const redirect = location.search ? location.search.split('=')[1] : '/';
 
@@ -17,8 +19,8 @@ const Login = ({location, history}) => {
     }, [history, userInfo, redirect])
 
     const submitHandler = (e) => {
-        e.preventDefault()
-        console.log(e);
+        e.preventDefault();
+        dispatch(login(email, password))
     }
     return (
         <div className="login-continer">
@@ -32,9 +34,7 @@ const Login = ({location, history}) => {
                     <div className="input-div pass">
                     <input type="password" value={password} placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
                     </div>
-                    
                     <input type="submit" className="btn" value="Login" />
-                
                 </form>
             </div>
         </div>
