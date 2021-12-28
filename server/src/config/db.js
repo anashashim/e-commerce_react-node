@@ -1,4 +1,5 @@
 import mongose from 'mongoose'
+import colors from 'colors'
 
 // a mongoose stuf (mongoose.connect ....) return always a promise
 const connectDB = async () => {
