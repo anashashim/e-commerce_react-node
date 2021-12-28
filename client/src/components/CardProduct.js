@@ -23,21 +23,21 @@ const CardProduct = ({product}) => {
     }
     return (
         <>  
-            <div className='cardProduct' 
+            <div className='card-product' 
                 onMouseOver={ ()=> {setShowbtn (true)}} 
                 onMouseLeave= { ()=> {setShowbtn (false)}}>           
                 <div className='imgDiv'>
                     <img className='imgProduct' boxSize='350px' objectFit='cover' src={product.image} />  
                 </div>
-                <div className='bottomcard'>
-                    <Link to={`/product/${product._id}`} exact  >     
-                        <span>{product.name}</span>     
-                    </Link>
+                <div className='bottomcard'>   
+                    <h4>{product.name}</h4>
+                    <div className='cart-info'>
                     { Incart 
                         ? <span>-</span>
                         : <span onClick = {addcart}>+</span>  
                     }
-                    <div className = 'productpricecard'> {`${product.price} $`}</div>          
+                    </div>
+                    <div className ='productpricecard'> {`${product.price} $`}</div>          
                </div> 
              </div>      
          </>
