@@ -43,7 +43,7 @@ const CartProduct = ({product}) => {
             <div className = 'qtyoption cart-info' >
                 Quantity : 
                 <span onClick={()=>addQuantity()}>+</span>
-                {product.qty}
+                {' '}{product.qty}{' '}
                 <span onClick={()=>removeQuantity()}>-</span>
                 <h2>
                     {(qty === 0 ? product.qty*product.price : qty*product.price).toFixed(2)}$
