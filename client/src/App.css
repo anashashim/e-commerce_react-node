@@ -11,14 +11,19 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
-    /* font-size: 1rem; */
+    font-size: 1rem;
     font-weight: 400;
 }
 h1, h2 {
     font-weight: 700;
+    font-size: 1.3rem;
 }
 h3,h4,h5{
     font-weight: 500;
+    font-size: 1.1rem;
+}
+.theme-color{
+    color: #dc6600;
 }
 .text-center {
     text-align: center;
@@ -42,7 +47,7 @@ h3,h4,h5{
     height: 25px;
     width: 25px;
     border-radius: 50%;
-    background-color: #0071dc;
+    background-color: #dc6600;
     margin: 0 5px;
 }
 .loading {
@@ -61,8 +66,9 @@ h3,h4,h5{
     margin-left: 80px;
     margin-right: 80px;
 }
-.logo a{
+.logo a, .logo a span{
     font-weight: 800;
+    font-size: 1.5rem;
 }
 nav {
     width: 100%;
@@ -409,12 +415,11 @@ nav {
     min-width: 100px;
     height: 40px;
     cursor: pointer;
-    color: #888;
-    border: 1px solid #e6e6e6;
+    color: #333;
+    border: 2px solid #333;
     border-radius: 3px;
-    font-family: "Poppins-Regular", sans-serif;
-    background-color: #f2f2f2;
-    font-size: 15px;
+    background-color: #fff;
+    font-size: 0.875rem;
     line-height: 1.2;
     transition: all 0.2s;
     align-items: center;
@@ -429,8 +434,7 @@ nav {
 
 .filterbtn:hover,
 .searchbtn:hover {
-  color: white;
-  background-color: rgb(113, 127, 224);
+  border-color: #dc6600;
 }
 .sortbydiv{
     position: absolute;
@@ -465,7 +469,7 @@ nav {
     display: block;
     width: 0;
     height: 2px;
-    background: #1e1e2c;
+    background: #dc6600;
     transition: width 0.3s;
 }
 .lined:hover::after {
@@ -543,6 +547,9 @@ nav {
     column-gap: 10px;
     row-gap: 50px;
 }
+.productpricecard {
+    color: #dc6600;
+}
 .card-product {
     box-shadow: 0px 0px 8px 0px rgb(0 0 0 / 6%);
     display: grid;
@@ -585,6 +592,7 @@ nav {
 }
 .cart-info {
     text-align: right;
+    float: right;
 }
 .cart-info span{
     width: 30px;

@@ -24,7 +24,7 @@ const Orders = ({history}) => {
                 ? orders.map((order)=>
                     <div className='order'>
                         <div className="products-container">
-                            <h2>ID#{order._id}</h2>
+                            <h3>ORDER ID#{order._id}</h3>
                             { order.orderItems.length === 0 ? <p>Your order is empty</p>:
                                 <div className="products">
                                     { order.orderItems.map((item, index) => (  

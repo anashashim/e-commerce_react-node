@@ -41,7 +41,6 @@ const CardProduct = ({product}) => {
                         <span disabled={quantity===0} onClick={removeQuantity}>-</span>
                         {' '}{ quantity }{' '}
                         <span onClick={addQuantity}>+</span>  
-                    
                     </div>
                     <div className ='productpricecard'> {`${product.price} $`}</div>          
                </div> 

@@ -49,5 +49,17 @@ export const Listproductbyfiter = (filter) => async (dispatch) =>{
                       payload : error.response && error.response.data.message 
                       ? error.response.data.message : error.message, }) 
     }
+}
 
+export const Listproductbysearch = (filter) => async (dispatch) =>{
+    try {
+        dispatch({type : PRODUCT_LIST_REQUEST })
+        const {data} = await axios.get(`${HOST_URL}/api/products/?search=${filter}`)
+        dispatch({type : PRODUCT_LIST_SUCCESS , payload : data})
+        console.log(data)
+        } catch (error) {
+            dispatch({type : PRODUCT_LIST_FAIL , 
+                      payload : error.response && error.response.data.message 
+                      ? error.response.data.message : error.message, }) 
+    }
 }

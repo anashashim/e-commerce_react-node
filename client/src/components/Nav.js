@@ -39,7 +39,7 @@ import {logout} from '../redux/actions/userAction';
     return (
        <nav ref = {Nav}  className={`nav ${nav ? 'active' : ''}`} >
             <div className="logo">
-                <Link to='/'>AppName</Link>
+                <Link to='/'>App<span className='theme-color'>Name</span></Link>
             </div>
             <div className = "rightComp" ref = {rightItems}>
                 <Link to='/cart' className='cart'> Cart

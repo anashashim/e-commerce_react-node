@@ -4,13 +4,13 @@ const Search = ({history}) => {
     const [keyword, setkeyword] = useState('')
     const Handlesearch = (e) => {
         if(keyword.trim() && e.which === 13){
-            history.push(`/search/${keyword}`)
+            history.push(`/?search=${keyword}`)
         }else{
         }
     }
     return (
         <div className='search-area'>
-            <input value = {keyword} onChange = {e=> setkeyword(e.target.value)} onKeyPress = {Handlesearch} bgColor  = 'white' placeholder="Tap For Search" />
+            <input value = {keyword} onChange = {e=> setkeyword(e.target.value)} onKeyPress = {Handlesearch} placeholder="Tap For Search" />
         </div>
     )
 }

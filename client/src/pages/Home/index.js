@@ -5,7 +5,8 @@ import { Link, Route } from 'react-router-dom';
 import {
     listProducts,
     ListproductbyCg, 
-    Listproductbyfiter
+    Listproductbyfiter,
+    Listproductbysearch
 } from '../../redux/actions/productActions';
 import Search from '../../components/Search';
 import CardProduct from '../../components/CardProduct';
@@ -20,17 +21,28 @@ const Home = ({match,history}) => {
         return state.ListproductbyCg
     })
     const productbyfilter = useSelector((state)=>{
-        return state.Listproductbyfilter
+        return state.Listproductbyfiter
     })
     
     const {loading,error,products} = productbycg ? productbycg : productList ;
     useEffect(()=>{
         if(Cg){
-            console.log(window.location.search.split('=')[0])
-            if(window.location.search.split('=')[0] === '?cg')
-                dispatch(ListproductbyCg(Cg))
-            else
-                dispatch(Listproductbyfiter(Cg))
+            console.log()
+            const type = window.location.search.split('=')[0];
+            switch (type) {
+                case '?cg':
+                    dispatch(ListproductbyCg(Cg))
+                    break;
+                case '?filter':
+                    dispatch(Listproductbyfiter(Cg))
+                    break;
+                case '?search':
+                    dispatch(Listproductbysearch(Cg))
+                    break;
+                default:
+                    break;
+            }
+             
         }
         else
             dispatch(listProducts(keyword))

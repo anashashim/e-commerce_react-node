@@ -6,10 +6,9 @@ import Product from '../models/productModel.js'
 // @route GET /api/products
 // @access Public
 const getProducts = asyncHandler(async (req, res) => {
-    const Cg = req.query.Cg
-    const filter = req.query.filter
-    const from = req.query.from
-    const to = req.query.to
+    const Cg = req.query.Cg;
+    const filter = req.query.filter;
+    const search = req.query.search;
     const keyword = req.query.keyword ? {
         name : {
             $regex : req.query.keyword,
@@ -23,6 +22,9 @@ const getProducts = asyncHandler(async (req, res) => {
         const products =  await Product.find({category : Cg});
         res.json(products)
 
+    } else if(search){
+        const productsBySearch = await Product.find({ $text: { $search: search, $diacriticSensitive:true } });
+        res.json(productsBySearch)
     }
     else if(filter){
         switch (filter) {
@@ -31,22 +33,19 @@ const getProducts = asyncHandler(async (req, res) => {
                 res.json(productsbydate)
                     break;
             case 'highprice':
-                const productsbyhighprice =  await Product.find({}).sort('price');
-                res.json(productsbyhighprice)
+                const productsbyhighprice =  await Product.find({});
+                const productByHigh = productsbyhighprice.sort((a, b)=> b.price - a.price)
+                res.json(productByHigh)
 
                     break;
             case 'lowprice':
-                const productsbylowprice =  await Product.find({}).sort('-price').exec();
-                res.json(productsbylowprice)
+                const productsbylowprice = await Product.find({});
+                const productsbylow= productsbylowprice.sort((a, b)=> a.price - b.price)
+                res.json(productsbylow)
                     break;
-        
             default:
                 break;
         }
-    }else if(from && to){
-        const productbyprice =  await Product.find({price:{$lte:to},price:{$gte:from}});
-        res.json(productbyprice)
-
     }else{
         const products =  await Product.find({...keyword});
         res.json(products)
