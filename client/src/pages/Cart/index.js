@@ -1,7 +1,8 @@
 import React from 'react'
 import { useEffect } from 'react';
-import { useDispatch,useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../redux/actions/cartActions';
+import { createOrder } from '../../redux/actions/orderActions';
 import EmptyCart from '../../components/EmptyCart';
 import CartProduct from '../../components/CartProduct';
 import './cart.css';
@@ -16,10 +17,16 @@ const Cart = ({match,location,history}) => {
     useEffect(()=>{
         if(id) dispatch(addToCart(id,qty))
     },[dispatch,id,qty])
-
+    const userLogin = useSelector(state => state.userLogin);
+    const {userInfo} = userLogin;
+    // console.log()
     const checkoutHandler =()=>{
-        // history.push('./login?redirect=shipping');
-        
+        const order = {
+            user: userInfo,
+            orderItems: cartItems,
+            totalPrice: cartItems.reduce((acc,item )=> acc + item.qty * item.price,0).toFixed(2)
+        }
+        dispatch(createOrder(order));
     }
 
     return (

@@ -2,7 +2,8 @@ import axios from 'axios';
 import { HOST_URL } from "../../constants";
 import {
   CART_ADD_ITEM,
-  CART_REMOVE_ITEM
+  CART_REMOVE_ITEM,
+  CART_CLEAR
 } from '../constants/cartConstants'
 
 export const addToCart = (id, qty) => async (dispatch, getState) => {
@@ -28,4 +29,12 @@ export const removeFromCart= (id)=> (dispatch,getState)=>{
       payload: id
     })
     localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems))
+}
+
+export const clearCart = () => (dispatch,getState) =>{
+  dispatch({
+    type: CART_CLEAR,
+    payload: []
+  })
+  localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems))
 }
