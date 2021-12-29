@@ -42,7 +42,10 @@ const CardProduct = ({product}) => {
                         {' '}{ quantity }{' '}
                         <span onClick={addQuantity}>+</span>  
                     </div>
-                    <div className ='productpricecard'> {`${product.price} $`}</div>          
+                    <div className ='productpricecard'> {`${product.price} $`}</div>  
+                    <div className='categories'>
+                        {product.category.map((category)=><span className='category'>{category}</span>)}   
+                    </div>     
                </div> 
              </div>      
          </>

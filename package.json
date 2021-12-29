@@ -4,9 +4,9 @@
   "description": "A e-commerce platform with React and Nodejs",
   "main": "index.js",
   "scripts": {
-    "start": "node server/server.js",
-    "server": "nodemon server/server.js",
-    "client": "npm start --prefix frontend"
+    "start": "node server/index.js",
+    "server": "nodemon server/index.js",
+    "client": "cd client && npm start"
   },
   "repository": {
     "type": "git",

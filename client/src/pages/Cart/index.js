@@ -67,7 +67,7 @@ const Cart = ({match,location,history}) => {
                             ).toFixed(2)}$
                         </h3>
                         <button className='checkoutbtn' disabled={cartItems.length===0} onClick={checkoutHandler}>
-                            Checkout
+                            Complete Order
                         </button>
                     </div>
 
