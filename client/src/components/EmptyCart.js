@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 
 const EmptyCart = () => {
     return (
-        <div className='Emptycart'>
+        <div className='emptycart'>
             <div className = 'textempty'>
-            <h1>
+            <h2>
                 Wow Such an empty Cart
-            </h1>
+            </h2>
             <Link to = '/' className ='goshop'>
             Go Shop
             </Link>

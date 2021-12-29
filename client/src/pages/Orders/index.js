@@ -1,4 +1,4 @@
-import React , { useState, useEffect } from 'react';
+import React , { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { listMyOrders } from '../../redux/actions/orderActions';
 import './orders.css';
@@ -18,7 +18,7 @@ const Orders = ({history}) => {
         }
     },[dispatch, userInfo])
     return (
-        <div className="order-container">
+        <div className="container">
             <h2>My Orders</h2>
             { orders 
                 ? orders.map((order)=>

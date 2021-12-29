@@ -6,6 +6,7 @@ import {
     USER_LOGIN_SUCCESS, 
     USER_LOGOUT 
 } from "../constants/userConstants";
+import { clearCart } from "./cartActions";
 
 const login = (email, password) => async(dispatch) => {
     try {
@@ -37,6 +38,7 @@ const login = (email, password) => async(dispatch) => {
 
 export const logout =() => (dispatch) => {
     localStorage.removeItem('userInfo')
+    dispatch(clearCart());
     dispatch({type: USER_LOGOUT})
 }
 
