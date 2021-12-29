@@ -5,7 +5,6 @@ import { getProducts, getProductById } from '../controlers/productControler.js';
 
 router.post('/login', authUser);
 router.route('/products').get(getProducts);
-router.route('/:id').get(getProductById);
-
+router.route('/products/:id').get(getProductById);
 
 export default router

@@ -27,7 +27,7 @@ const CardProduct = ({product}) => {
                 onMouseOver={ ()=> {setShowbtn (true)}} 
                 onMouseLeave= { ()=> {setShowbtn (false)}}>           
                 <div className='imgDiv'>
-                    <img className='imgProduct' boxSize='350px' objectFit='cover' src={product.image} />  
+                    <img className='imgProduct' src={product.image} />  
                 </div>
                 <div className='bottomcard'>   
                     <h4>{product.name}</h4>

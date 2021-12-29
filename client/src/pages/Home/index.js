@@ -25,7 +25,6 @@ const Home = ({match,history}) => {
     
     const {loading,error,products} = productbycg ? productbycg : productList ;
     useEffect(()=>{
- 
         if(Cg){
             console.log(window.location.search.split('=')[0])
             if(window.location.search.split('=')[0] === '?cg')
@@ -37,12 +36,13 @@ const Home = ({match,history}) => {
             dispatch(listProducts(keyword))
 
     },[dispatch,Cg,keyword])
-    const [showfilter,setshowfilter] = useState(false);
-    const [showsearch,setshowsearch] = useState(false);
+    
+    const [showfilter, setshowfilter] = useState(false);
+    const [showsearch, setshowsearch] = useState(false);
+    
     const filterfunc = () =>{
         setshowfilter(!showfilter);
         if(showsearch) setshowsearch(false)
- 
     }
     const searchfunc=()=>{
         setshowsearch(!showsearch);
@@ -51,7 +51,7 @@ const Home = ({match,history}) => {
 
     return (
         <>
-        <div className='Cgfilter'>
+        <div className='cg-filter'>
             <h1>{Cg ? Cg : keyword ?  "*" + keyword + "* Search" : 'All'} Products</h1>
             <div className='filters-btn'>
                 <button 
@@ -62,11 +62,9 @@ const Home = ({match,history}) => {
                 {showfilter && 
                     <div className='sortbydiv'>
                         <ul>
-                            <li><Link onClick = {()=>(setshowfilter(false))} className = 'lined' to = '?filter'>Default</Link></li>
-                            <li><Link onClick = {()=>(setshowfilter(false))} className = 'lined' to = '?filter=Rating'>Rating</Link></li>
-                            <li><Link onClick = {()=>(setshowfilter(false))} className = 'lined' to = '?filter=date'>Date</Link></li>
-                            <li><Link onClick = {()=>(setshowfilter(false))} className = 'lined' to = '?filter=highprice'>Low to high price</Link></li>
-                            <li><Link onClick = {()=>(setshowfilter(false))} className = 'lined' to = '?filter=lowprice'>high to low price</Link></li>
+                            <li><Link onClick={()=>(setshowfilter(false))} className ='lined' to='?filter'>Default</Link></li>
+                            <li><Link onClick={()=>(setshowfilter(false))} className ='lined' to='?filter=highprice'>Low to high price</Link></li>
+                            <li><Link onClick={()=>(setshowfilter(false))} className ='lined' to='?filter=lowprice'>high to low price</Link></li>
                         </ul> 
                     </div>
                 }
