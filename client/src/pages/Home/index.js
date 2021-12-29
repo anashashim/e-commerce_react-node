@@ -6,7 +6,7 @@ import {
     listProducts,
     ListproductbyCg, 
     Listproductbyfiter
-} from '../../redux/actions/productAction';
+} from '../../redux/actions/productActions';
 import Search from '../../components/Search';
 import CardProduct from '../../components/CardProduct';
 

@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 import { HOST_URL } from "../../constants";
 import {
   CART_ADD_ITEM,
